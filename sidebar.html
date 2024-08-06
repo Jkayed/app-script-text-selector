@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <title>Text Selector</title>
+  <script>
+    /**
+     * Fetches the selected text and displays it in the textarea.
+     */
+    function fetchSelectedText() {
+      google.script.run.withSuccessHandler(function(selectedText) {
+        console.log(selectedText)
+      }).getSelectedText();
+    }
+
+    /**
+     * Replaces the selected text with "Blah Blah Blah".
+     */
+    function replaceSelectedText() {
+      google.script.run.withSuccessHandler(function(successMessage) {
+        document.getElementById('selected-text').textContent = successMessage;
+      }).replaceSelectedText('Blah Blah Blah');
+    }
+
+    /**
+     * Sets up event handlers when the document loads.
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('fetch-text').addEventListener('click', fetchSelectedText);
+      document.getElementById('replace-text').addEventListener('click', replaceSelectedText);
+    });
+  </script>
+</head>
+<body>
+  <div class="sidebar branding-below">
+    <form>
+      <div class="block form-group">
+      </div>
+      <div class="block">
+        <button id="fetch-text" class="blue">Fetch Selected Text</button>
+        <button id="replace-text" class="blue">Replace Selected Text</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
