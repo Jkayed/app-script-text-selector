@@ -1,0 +1,28 @@
+{
+  "timeZone": "America/New_York",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "dependencies": {},
+  "webapp": {
+    "executeAs": "USER_ACCESSING",
+    "access": "ANYONE"
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/documents",
+    "https://www.googleapis.com/auth/script.container.ui",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/script.locale"
+  ],
+  "addOns": {
+    "common": {
+      "name": "Text Selector",
+      "logoUrl": "https://www.gstatic.com/images/branding/product/1x/translate_48dp.png",
+      "useLocaleFromApp": true
+    },
+    "docs": {
+      "homepageTrigger": {
+        "runFunction": "onOpen"
+      }
+    }
+  }
+}
